@@ -14,7 +14,7 @@ class Auth extends BaseController
     }
     public function admin()
     {
-        return view('admin/index');
+        return view('admin/layout');
     }
 
     public function loginAuth()
@@ -26,8 +26,8 @@ class Auth extends BaseController
         $password_hash = $this->request->getPost('password_hash');
 
         $user = $userModel->where('full_name', $full_name)
-                        ->orWhere('email', $full_name)
-                        ->first();
+            ->orWhere('email', $full_name)
+            ->first();
 
         if ($user) {
 
@@ -46,11 +46,9 @@ class Auth extends BaseController
                 } else {
                     return redirect()->to('home');
                 }
-
             } else {
                 return redirect()->back()->with('error', 'Password Salah!');
             }
-
         } else {
             return redirect()->back()->with('error', 'Akun Tidak Ditemukan!');
         }
