@@ -29,4 +29,12 @@ $routes->get('/admin/produk/ubah/(:num)', 'Admin\Produk::ubah/$1');
 $routes->post('/admin/produk/update/(:num)', 'Admin\Produk::update/$1');
 
 $routes->get('/admin/produk/delete/(:num)', 'Admin\Produk::delete/$1');
-$routes->get('detail/(:num)', 'Admin\Produk::detail/$1');
+
+$routes->get('/admin/users', 'Admin\Users::index');
+$routes->get('/admin/users/tambah', 'Admin\Users::tambah');
+$routes->post('/admin/users/simpan', 'Admin\Users::simpan');
+
+$routes->get('/admin/users/ubah/(:num)', 'Admin\Users::ubah/$1');
+$routes->post('/admin/users/update/(:num)', 'Admin\Users::update/$1');
+
+$routes->get('/admin/users/delete/(:num)', 'Admin\Users::delete/$1');

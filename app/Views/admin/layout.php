@@ -1,3 +1,8 @@
+<?php
+// app/Views/admin/layout.php
+$uri = service('uri');
+$seg2 = $uri->getSegment(2) ?? '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,10 +175,14 @@
             <img src="<?= base_url('assets/img/logo.svg'); ?>" alt="Logo">
         </div>
 
-        <a href="/admin" class="active"><i class="fa-solid fa-gauge"></i> Dashboard</a>
-        <a href="/admin/produk"><i class="fa-solid fa-box"></i> Products</a>
-        <a href="/admin/orders"><i class="fa-solid fa-cart-shopping"></i> Orders</a>
-        <a href="/admin/users"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="/admin/index" class="<?= ($seg2 === 'index' ? 'active' : '') ?>"><i class="fa-solid fa-gauge"></i>
+            Dashboard</a>
+        <a href="/admin/produk" class="<?= ($seg2 === 'produk' ? 'active' : '') ?>"><i class="fa-solid fa-box"></i>
+            Products</a>
+        <a href="/admin/orders" class="<?= ($seg2 === 'orders' ? 'active' : '') ?>"><i
+                class="fa-solid fa-cart-shopping"></i> Orders</a>
+        <a href="/admin/users" class="<?= ($seg2 === 'users' ? 'active' : '') ?>"><i class="fa-solid fa-users"></i>
+            Users</a>
     </div>
 
     <div class="main">
@@ -203,7 +212,6 @@
         function toggleMenu() {
             document.querySelector('.user-menu').classList.toggle('active');
         }
-
 
         document.addEventListener("click", function(e) {
             const menu = document.querySelector(".user-menu");
